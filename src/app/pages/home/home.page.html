@@ -1,0 +1,99 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="off-white">
+  <div style="background-color: #FAFAFF;padding-top:10%;height:100%;">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sleepy Timer</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row style="padding:1%;padding-right: 8%;" >
+    <ion-col>
+      <div style="text-align: right;">
+        <ion-icon name="settings-sharp" style="font-size:18px;" (click)="nothingYet()"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="padding:6%;" >
+    <ion-col>
+      <span class="text-subtitle">Hello,</span><br>
+      <span class="text-header">Joy Amadea</span>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="padding:0 8%;">
+    <ion-col>
+      <span class="text-semihead black">Wake up at</span>
+    </ion-col>
+  </ion-row>
+  <ion-card class="ion-margin-top ion-margin-horizontal ion-padding margin-10 no-shadow" style="border-radius:19px;">
+    
+    <ion-row style="margin-top:5%;">
+      <ion-col>
+        
+        
+        <ion-datetime class="no-padding black" style="text-align:center;font-size:40px;font-weight: bold;" [(ngModel)]="timeChosen" displayFormat="h:mm A" value="10:00"></ion-datetime>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-bottom:5%;">
+      <ion-col>
+        <div style="text-align:center;">
+          <ion-button class="go-button" (click)="wakeUp()"><span class="text-semihead">Go</span></ion-button>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!-- Categories -->
+  <div style="padding:8%;">
+    <ion-row>
+      <ion-col>
+        <span class="text-semihead">Categories</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-margin ion-no-padding">
+        <ion-card class="ion-padding-5 ion-activatable ripple-parent"  style="border-radius:29px;background-color: #EB44A8;height:173px;" (click)="powerNap()">
+          <ion-row>
+            <ion-col>
+              <span style="color:white;font-weight:bold;" class="text-subtitle">Power Nap</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span style="color:white;align-text:bottom;" class="text-text">Find out when to wake up to have a power nap</span>
+            </ion-col>
+          </ion-row>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col class="ion-no-margin ion-no-padding">
+        <ion-card class="ion-padding-5 ion-activatable ripple-parent" style="border-radius:29px;background-color: #FF723D;height:173px;" (click)="sleepNow()">
+          <ion-row>
+            <ion-col>
+              <span style="color:white;font-weight:bold;" class="text-subtitle">Sleep Now</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span style="color:white;align-text:bottom;" class="text-text">Find out when to wake up if you go to bed now</span>
+            </ion-col>
+          </ion-row>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  </div>
+</ion-content>

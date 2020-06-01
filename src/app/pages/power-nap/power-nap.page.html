@@ -1,0 +1,54 @@
+
+<ion-content class="no-scroll">
+  <ion-refresher slot="fixed" style="z-index: var(--background)" (ionRefresh)="doRefreshActive($event)">
+    <ion-refresher-content pullingIcon="refresh" refreshingSpinner="dots">
+    </ion-refresher-content>
+  </ion-refresher>
+    <div style="background: linear-gradient(to bottom, #EB44A8 0%, #3824FF 30%,#ffffff 90%);height:100%; width:100%;">
+
+      <!-- Heading -->
+      <ion-row style="padding:16% 8%;" >
+        <ion-col>
+          <span class="text-header" style="color:white;">If you go to sleep now, you should wake up at</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-no-padding ion-no-margin" style="height:1000px;">
+        <ion-col class="ion-no-padding ion-no-margin">
+          <ion-card class="ion-no-margin no-shadow" style="border-radius:39px;background-color:white;height:100%;padding:8%;">
+           
+
+            <!-- Times -->
+            <ion-grid>
+              <ion-row style="margin-top: 15%;margin-bottom:10%;">
+                <ion-col size="3"></ion-col>
+                <ion-col *ngFor="let time of timeys;let i = index" size="6">
+                  
+                    <div style="padding:17px;background-color:#6151FF;border-radius:10px;text-align:center;">
+                      <span class="bold white" style="font-size:20px;">{{time}}</span>
+                    </div>
+                 
+                </ion-col>
+                <ion-col size="3"></ion-col>
+              </ion-row>
+            </ion-grid>
+            
+
+            <br>
+            <ion-row>
+              <ion-col>
+                <div style="text-align:center">
+                  <ion-button (click)="goBack()" class="back-button">
+                    <ion-back-button defaultHref="home"></ion-back-button>
+                  </ion-button>
+                </div>
+              </ion-col>
+            </ion-row>
+            
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    
+    
+    </div>
+</ion-content>

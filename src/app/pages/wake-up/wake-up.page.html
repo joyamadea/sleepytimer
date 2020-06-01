@@ -1,0 +1,60 @@
+
+<ion-content class="no-scroll">
+    <div style="background: linear-gradient(to bottom, #EB44A8 0%, #EB7244 30%,#ffffff 90%);height:100%; width:100%;">
+
+      <!-- Heading -->
+      <ion-row style="padding:16% 8%;" >
+        <ion-col>
+          <span class="text-header" style="color:white;">If you want to wake up by {{timeChosenFormatted}}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-no-padding ion-no-margin" style="height:1000px;">
+        <ion-col class="ion-no-padding ion-no-margin">
+          <ion-card class="ion-no-margin no-shadow" style="border-radius:39px;background-color:white;height:100%;padding:8%;">
+            <ion-row style="margin-top:10%;margin-bottom:10%;">
+              <ion-col>
+                <span class="text-text">You should try fall asleep at one of the following times</span>
+              </ion-col>
+            </ion-row>
+
+            <!-- Times -->
+            <ion-grid>
+              <ion-row >
+                <ion-col *ngFor="let time of timeys;let i = index" size="6">
+                    <div style="padding:17px;background-color:#FF723D;border-radius:10px;text-align:center;">
+                      <span class="text-text bold white">{{time}}</span>
+                    </div>
+                  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            
+            <!-- Little text -->
+            <ion-row style="margin-top:10%;">
+              <ion-col>
+                <div style="padding:18px;background-color:#D6EFFF;border-radius:31px;text-align:center;">
+                  <span class="text-text" style="color:black;">Waking up in the middle of a sleep cycle makes you groggy and tired, but waking up between cycles lets you wake up
+                  feeling refreshed and alert</span>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <br>
+            <ion-row>
+              <ion-col>
+                <div style="text-align:center">
+                  <ion-button (click)="goBack()" class="back-button">
+                    <ion-back-button defaultHref="home"></ion-back-button>
+                  </ion-button>
+                </div>
+              </ion-col>
+            </ion-row>
+            
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    
+    
+    </div>
+</ion-content>

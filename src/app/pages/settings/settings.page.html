@@ -1,0 +1,65 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="off-white">
+  <div style="background-color: #FAFAFF;padding-top:10%;height:100%;">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sleepy Timer</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-row style="padding:8%;" >
+    <ion-col>
+      <span class="text-header">Settings</span>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="padding:0 8%;">
+    <ion-col>
+      <span class="text-semihead black">Name</span>
+    </ion-col>
+  </ion-row>
+  <ion-card class="margin-10 ion-padding-5 no-shadow" style="border-radius:19px;">
+    <ion-row>  
+      <ion-col>
+        <span style="padding:5px;height:100%;display:block;vertical-align: middle;">Joy Amadea</span>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-row style="padding:0 8%;margin-top:6%;">
+    <ion-col>
+      <span class="text-semihead black">Dark Mode</span>
+    </ion-col>
+  </ion-row>
+  <ion-card class="margin-10 ion-padding-5 no-shadow" style="border-radius:19px;">
+    <ion-row>  
+      <ion-col>
+        <span style="padding:5px;height:100%;display:block;vertical-align: middle;">{{darkModeText}}</span>
+      </ion-col>
+      <ion-col style="text-align: right;">
+        <ion-toggle mode="ios" [ngModel]="darkMode" (ngModelChange)="notify()" style="padding:5px;"></ion-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-row style="margin-top:25%;">
+    <ion-col>
+      <div style="text-align:center">
+        <ion-button (click)="goBack()" class="back-button">
+          <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  
+  </div>
+</ion-content>
