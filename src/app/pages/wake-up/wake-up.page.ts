@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WakeUpService } from '../../services/wake-up.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { CacheService } from '../../services/cache.service';
 import * as moment from 'moment';
 
 @Component({
@@ -14,10 +15,13 @@ export class WakeUpPage implements OnInit {
   timeChosenFormatted: any;
   backButton:any;
   timeys=[];
+  mode: any;
+
   constructor(
     private wakeUpService: WakeUpService,
     private platform: Platform,
     private router: Router,
+    private cache: CacheService
   ) { }
 
   ngOnInit() {
@@ -31,6 +35,7 @@ export class WakeUpPage implements OnInit {
     this.timeChosen=this.wakeUpService.getTime();
     this.timeChosenFormatted=moment(this.timeChosen).format("h:mm A");
     this.calculateTime();
+    this.checkMode();
     console.log(this.timeys);
   }
 
@@ -51,6 +56,13 @@ export class WakeUpPage implements OnInit {
       time = next;
     }
     
+  }
+
+  checkMode(){
+    this.cache.getMode().then(res => {
+      this.mode = res;
+    }); 
+    console.log(this.mode);
   }
 
 }

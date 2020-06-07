@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.sleepytimer",
-  "appName": "sleepytimer",
+  "appName": "Sleepy Timer",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

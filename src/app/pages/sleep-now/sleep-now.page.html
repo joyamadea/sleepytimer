@@ -4,7 +4,7 @@
     <ion-refresher-content pullingIcon="refresh" refreshingSpinner="dots">
     </ion-refresher-content>
   </ion-refresher>
-    <div style="background: linear-gradient(to bottom, #3824FF 0%, #4EB8FF 30%,#ffffff 90%);height:100%; width:100%;">
+    <div style="background: var(--ion-color-blue-grad);height:100%; width:100%;">
 
       <!-- Heading -->
       <ion-row style="padding:16% 8%;" >
@@ -15,10 +15,10 @@
 
       <ion-row class="ion-no-padding ion-no-margin" style="height:1000px;">
         <ion-col class="ion-no-padding ion-no-margin">
-          <ion-card class="ion-no-margin no-shadow" style="border-radius:39px;background-color:white;height:100%;padding:8%;">
+          <ion-card class="ion-no-margin no-shadow" style="border-radius:39px;background-color:var(--ion-color-white-box);height:100%;padding:8%;">
             <ion-row style="margin-top:10%;margin-bottom:10%;">
               <ion-col>
-                <span class="text-text">If you head to bed now, you should try to wake up at one of the following times</span>
+                <span class="text-text" style="color:var(--ion-color-dark)">If you head to bed now, you should try to wake up at one of the following times</span>
               </ion-col>
             </ion-row>
 
@@ -27,12 +27,12 @@
               <ion-row>
                 <ion-col *ngFor="let time of timeys;let i = index" size="4">
                   <div *ngIf="i != 4 && i!= 5">
-                    <div style="padding:17px;background-color:#4EB8FF;border-radius:10px;text-align:center;">
+                    <div style="padding:17px;background-color:var(--ion-color-blue);border-radius:10px;text-align:center;">
                       <span class="text-text bold white">{{time}}</span>
                     </div>
                   </div>
                   <div *ngIf="i==4 || i==5">
-                    <div style="padding:17px;background-color:#EB44A8;border-radius:10px;text-align:center;">
+                    <div style="padding:17px;background-color:var(--ion-color-pink);border-radius:10px;text-align:center;">
                       <span class="text-text bold white">{{time}}</span>
                     </div>
                   </div>   
@@ -41,10 +41,18 @@
             </ion-grid>
             
             <!-- Little text -->
-            <ion-row style="margin-top:10%;">
+            <ion-row style="margin-top:10%;" *ngIf="!mode">
               <ion-col>
                 <div style="padding:18px;background-color:#D6EFFF;border-radius:31px;text-align:center;">
                   <span class="text-text" style="color:black;">A good night's sleep consists of 5-6 complete sleep cycles</span>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <ion-row style="margin-top:10%;" *ngIf="mode">
+              <ion-col>
+                <div style="padding:18px;border-radius:31px;text-align:center;border:1px solid #A4D2EF">
+                  <span class="text-text" style="color:#A4D2EF;">A good night's sleep consists of 5-6 complete sleep cycles</span>
                 </div>
               </ion-col>
             </ion-row>

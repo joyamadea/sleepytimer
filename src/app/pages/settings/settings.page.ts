@@ -9,18 +9,19 @@ import { CacheService } from '../../services/cache.service';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-  darkMode=false;
+  darkMode = false;
   backButton: any;
-  darkModeText:any="Off";
+  darkModeText: any = 'Off';
 
   constructor(
     private cacheService: CacheService,
     private platform: Platform,
     private router: Router,
-  ) { }
-
-  ngOnInit() {
+  ) { 
+   
   }
+
+  ngOnInit() {}
   
   ionViewWillEnter() {
     this.backButton = this.platform.backButton.subscribeWithPriority(1, () => {
@@ -38,29 +39,49 @@ export class SettingsPage implements OnInit {
   }
 
   notify() {
-    if(this.darkMode == false){
-      this.darkMode = true;
+    console.log("Clicked");
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle("dark",this.darkMode);
+
+    
+
+    this.cacheService.setMode(this.darkMode).then(res =>{
+      console.log("Data is saved with value ",this.darkMode);
+    }).catch(e=>{
+      console.log(e);
+    });
+    if (this.darkModeText === 'On') {
+      this.darkModeText = 'Off';
     }
-    else if(this.darkMode == true){
-      this.darkMode = false;
-    }
-    this.cacheService.setMode(this.darkMode);
-    if(this.darkModeText == "On"){
-      this.darkModeText = "Off";
-    }
-    else if(this.darkModeText == "Off"){
-      this.darkModeText = "On";
+    else if (this.darkModeText === 'Off') {
+      this.darkModeText = 'On';
     }
   }
 
-  async dark(){
-    this.darkMode = await this.cacheService.getMode();
-    if(!this.darkMode){
-      this.darkModeText = "Off";
-    }
-    else{
-      this.darkModeText = "On";
-    }
+
+
+  dark(){
+    console.log("First loaded the page");
+    this.cacheService.getMode().then(res=>{
+      console.log("Dark Mode is "+res);
+      this.darkMode = res;
+      document.body.classList.toggle("dark",this.darkMode);
+      if (!this.darkMode){
+        this.darkModeText = 'Off';
+      }
+      else {
+        this.darkModeText = 'On';
+      }
+    }).catch(e=>{
+      console.log(e);
+    });
+
+    
+    
+  }
+
+  changeName(){
+    this.router.navigate(['/settings/change-name']);
   }
 
 }

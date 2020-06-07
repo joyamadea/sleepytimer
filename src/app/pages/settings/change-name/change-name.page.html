@@ -1,0 +1,31 @@
+
+
+<ion-content [fullscreen]="true" class="off-white">
+  <div style="background-color: #FAFAFF;padding-top:10%;height:100%;">
+  <ion-row style="padding:8%;" >
+    <ion-col>
+      <span class="text-header">Settings</span>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="ion-no-padding container" >
+    <ion-row style="padding:0 8%;">
+      <ion-col>
+        <span class="text-semihead black">Name</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-horizontal-8" style="margin-top:10px;">
+      <ion-col>
+        <ion-input class="text-text" type="text" style="background-color:white;border-radius:19px;margin:5px;" [(ngModel)]="hello" (ionChange)="test()"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-top: 32px;">
+      <ion-col>
+        {{hello}}
+        <div style="text-align:center;">
+          <ion-button class="save-button" (click)="saveName()"><span class="text-semihead" style="text-transform: none;">Save</span></ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

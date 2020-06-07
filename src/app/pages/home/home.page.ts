@@ -9,8 +9,7 @@ import * as moment from 'moment';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  timeChosen=moment().format();
-  
+  timeChosen = moment().format();
   constructor(
     private router: Router,
     private wakeUpService: WakeUpService

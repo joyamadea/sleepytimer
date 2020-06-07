@@ -9,9 +9,9 @@ import * as moment from 'moment';
   styleUrls: ['./power-nap.page.scss'],
 })
 export class PowerNapPage implements OnInit {
-  backButton:any;
-  timeys=[];
-  currTime:any;
+  backButton: any;
+  timeys = [];
+  currTime: any;
 
   constructor(
     private platform: Platform,
@@ -29,7 +29,7 @@ export class PowerNapPage implements OnInit {
     console.log(this.timeys);
   }
 
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     this.backButton.unsubscribe();
   }
 
@@ -37,20 +37,21 @@ export class PowerNapPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  calculateTime(){ 
-    this.currTime = moment().add(14,'minutes');
-    let next = moment(this.currTime).add(1,'hours').add(30,'minutes');
+  calculateTime() { 
+    this.currTime = moment().add(14, 'minutes');
+    const next = moment(this.currTime).add(1, 'hours').add(30, 'minutes');
     this.timeys.push(moment(next).format('h:mm A'));
   }
 
-  reset(){
-    this.timeys=[];
+  reset() {
+    this.timeys = [];
   }
+
   doRefreshActive(event) {
     setTimeout(() => {
       this.reset();
       this.calculateTime();
-    console.log(this.timeys);
+      console.log(this.timeys);
       event.target.complete();
     }, 1500);
   }
