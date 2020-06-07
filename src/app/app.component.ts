@@ -27,6 +27,7 @@ export class AppComponent {
       
     });
     this.setMode();
+    this.setName();
   }
 
   setMode(){
@@ -36,6 +37,14 @@ export class AppComponent {
       }
       else{
         document.body.classList.toggle("dark",res);
+      }
+    });
+  }
+
+  setName(){
+    this.cache.getName().then(res => {
+      if(res === null || res === undefined){
+        this.cache.setName("User");
       }
     });
   }

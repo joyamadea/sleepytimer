@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WakeUpService } from '../../services/wake-up.service';
 import * as moment from 'moment';
+import { CacheService } from '../../services/cache.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,19 @@ import * as moment from 'moment';
 })
 export class HomePage {
   timeChosen = moment().format();
+  name = "";
   constructor(
     private router: Router,
-    private wakeUpService: WakeUpService
+    private wakeUpService: WakeUpService,
+    private cache: CacheService
   ) {}
+
+  ngOnInit(){}
+
+  ionViewWillEnter() {
+   
+    this.init();
+  }
 
   wakeUp(){
     this.wakeUpService.setTime(this.timeChosen);
@@ -27,8 +37,16 @@ export class HomePage {
     this.router.navigate(['/sleep-now']);
   }
 
-  nothingYet(){
+  settings(){
     this.router.navigate(['/settings']);
+  }
+
+  init(){
+    this.cache.getName().then(res=>{
+      this.name = res;
+    }).catch(e=>{
+      console.log(e);
+    });
   }
 
 }

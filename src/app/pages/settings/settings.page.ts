@@ -12,6 +12,7 @@ export class SettingsPage implements OnInit {
   darkMode = false;
   backButton: any;
   darkModeText: any = 'Off';
+  name: any;
 
   constructor(
     private cacheService: CacheService,
@@ -28,6 +29,7 @@ export class SettingsPage implements OnInit {
       this.goBack();
     });
     this.dark();
+    this.init();
   }
 
   ionViewWillLeave(){
@@ -58,7 +60,15 @@ export class SettingsPage implements OnInit {
     }
   }
 
-
+  init(){
+    this.cacheService.getName().then(res=>{
+      console.log("Name is "+res);
+      this.name = res;
+      console.log(this.name);
+    }).catch(e=>{
+      console.log(e);
+    });
+  }
 
   dark(){
     console.log("First loaded the page");
@@ -81,7 +91,7 @@ export class SettingsPage implements OnInit {
   }
 
   changeName(){
-    this.router.navigate(['/settings/change-name']);
+    this.router.navigate(['/name-settings']);
   }
 
 }
